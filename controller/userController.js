@@ -63,7 +63,7 @@ export const Delete = async(req,res)=>{
 export const FindUser = async(req,res) =>{
     try{
         const id = req.params.id;
-        const userExists = await user.findOne({_id:id})
+        const userExists = await user.findById(id);
         if(!userExists){
             return res.status(400).json({message: "No User found"});
         }
